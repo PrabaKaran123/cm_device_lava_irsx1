@@ -1,0 +1,43 @@
+USE_CAMERA_STUB := true
+
+# inherit from the proprietary version
+-include vendor/lava/x1/BoardConfigVendor.mk
+
+TARGET_ARCH := arm
+TARGET_NO_BOOTLOADER := true
+TARGET_BOARD_PLATFORM := unknown
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a7
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+TARGET_BOOTLOADER_BOARD_NAME := x1
+
+BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_BASE := 0x82000000
+BOARD_KERNEL_PAGESIZE := 2048
+
+# fix this up by examining /proc/mtd on a running device
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+TARGET_PREBUILT_KERNEL := device/lava/x1/kernel
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+# my additional flags
+TW_BRIGHTNESS_PATH := "/sys/devices/platform/pwm-backlight.0/backlight/pwm-backlight.0/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_NO_SCREEN_BLANK := true
+
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+TARGET_RECOVERY_FSTAB := device/lava/x1/recovery.fstab
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+DEVICE_RESOLUTION := 854x458 
